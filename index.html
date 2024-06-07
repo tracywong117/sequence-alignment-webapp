@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sequence Alignment</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div id="app" class="container">
+        <div v-if="!showResult">
+            <h1>Sequence Alignment</h1>
+            <form @submit.prevent="alignSequences">
+                <label for="seq1">Sequence 1:</label>
+                <textarea id="seq1" v-model="seq1" rows="4"></textarea>
+                <label for="seq2">Sequence 2:</label>
+                <textarea id="seq2" v-model="seq2" rows="4"></textarea>
+                <input type="submit" value="Align">
+            </form>
+        </div>
+        <div v-if="score !== null">
+            <h1>Alignment Score</h1>
+            <p>Score: {{ score }}</p>
+            <button @click="resetForm">Try another alignment</button>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <script src="app.js"></script>
+</body>
+</html>
